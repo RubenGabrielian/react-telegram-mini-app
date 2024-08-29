@@ -9,19 +9,8 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h2>Սա պարապողների համար ամենալավ էփն է լինելու</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <div className="card">
           <button
             onClick={() =>
@@ -31,7 +20,7 @@ function App() {
                 buttons: [
                   { type: "close", text: "close" },
                   { type: "destructive", text: "delete" },
-                  { type: "ok", text: "ok" },
+                  { type: "ok", text: "OK" },
                 ],
               })
             }
