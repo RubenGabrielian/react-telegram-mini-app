@@ -8,19 +8,19 @@ export default function Menu () {
             <ul className={'list-none flex justify-between'}>
                 <li>
                     <a href="" className={'flex flex-col items-center decoration-0 text-black'}>
-                        <img src={homeIcon} alt=""/>
+                        <img className={'w-[20px]'} src={homeIcon} alt=""/>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="" className={'flex flex-col items-center decoration-0 text-black'}>
-                        <img src={listIcon} alt=""/>
+                        <img className={'w-[20px]'} src={listIcon} alt=""/>
                         <span>Trainings</span>
                     </a>
                 </li>
                 <li>
                     <a href="" className={'flex flex-col items-center decoration-0 text-black'}>
-                        <img src={profileIcon} alt=""/>
+                        <img className={'w-[20px]'} src={profileIcon} alt=""/>
                         <span>Profile</span>
                     </a>
                 </li>
