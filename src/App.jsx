@@ -22,11 +22,18 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        {/* Here we add our button with alert callback */}
         <div className="card">
           <button
             onClick={() =>
-              WebApp.showAlert(`Hello World! Current count is ${count}`)
+              WebApp.showPopup({
+                title: "Hello Ruben",
+                message: "lorem lorem lorem",
+                buttons: [
+                  { type: "close", text: "close" },
+                  { type: "destructive", text: "delete" },
+                  { type: "ok", text: "ok" },
+                ],
+              })
             }
           >
             Show Alert
