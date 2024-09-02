@@ -52,7 +52,7 @@ function App() {
                             return (
                                 <div className="item py-4 px-6 m-2 rounded-xl shadow w-full">
                                     <h3><strong>Date:</strong> {formattedDate}</h3>
-                                    <h2><strong>Cost: {item?.cost / 20}</strong></h2>
+                                    <h2><strong>Cost: {item?.cost / 40}</strong></h2>
                                 </div>)
                         })
                     }
