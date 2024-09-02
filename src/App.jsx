@@ -2,11 +2,10 @@ import {useEffect, useState} from "react";
 import "./App.css";
 import Heading from "./components/home/heading.jsx";
 import Header from "./components/layouts/header.jsx";
-import Menu from "./components/layouts/menu.jsx";
 import WebApp from "@twa-dev/sdk";
 import axios from "axios";
-import {TOKEN} from "./utilites.js";
 import moment from "moment";
+import Loading from "./components/loading.jsx";
 
 
 const headers = {
@@ -44,22 +43,20 @@ function App() {
             <Header/>
             <Heading/>
             <div className={'container mx-auto px-4'}>
-                <div className="flex flex-wrap overflow-auto max-h-[70vh]">
-
+                <div className="flex flex-wrap overflow-auto max-h-[80vh]">
                     {
-                        data?.map((item) => {
+                        data?.length ? data?.map((item) => {
                             const formattedDate = moment(item?.date).format('MMMM D, YYYY');
                             return (
                                 <div className="item py-4 px-6 m-2 rounded-xl shadow w-full">
                                     <h3><strong>Date:</strong> {formattedDate}</h3>
                                     <h2><strong>Cost: {item?.cost / 40}</strong></h2>
                                 </div>)
-                        })
+                        }) : <Loading/>
                     }
                 </div>
-
             </div>
-            <Menu/>
+            {/*<Menu/>*/}
         </div>
     );
 }
