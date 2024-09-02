@@ -30,7 +30,7 @@ function App() {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        console.log(WebApp);
+        console.log(WebApp?.initDataUnsafe);
 
         axios.get(url);
     }, []);
