@@ -23,7 +23,7 @@ function App() {
             "jsonrpc": "2.0",
             "id": "json-rpc_83",
         }, {
-            headers: { Cookies: `${TOKEN}` }
+            headers: { Cookie: `${TOKEN}` }
         }).then((response) => {
             console.log(response);
         })
