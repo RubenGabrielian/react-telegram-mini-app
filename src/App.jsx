@@ -6,6 +6,7 @@ import WebApp from "@twa-dev/sdk";
 import axios from "axios";
 import moment from "moment";
 import Loading from "./components/loading.jsx";
+import ChooseWarehouse from "./components/warehouses/index.jsx";
 
 
 const headers = {
@@ -33,29 +34,30 @@ function App() {
     useEffect(() => {
         console.log(WebApp?.initDataUnsafe?.user);
 
-        axios.get(url).then((response) => {
-            setData(response?.data?.result?.costs);
-        })
+        // axios.get(url).then((response) => {
+        //     setData(response?.data?.result?.costs);
+        // })
     }, []);
 
     return (
         <div style={{maxHeight: `${WebApp.viewportHeight}px`}}>
             <Header/>
-            <Heading/>
-            <div className={'container mx-auto px-4'}>
-                <div className="flex flex-wrap overflow-auto max-h-[80vh]">
-                    {
-                        data?.length ? data?.map((item) => {
-                            const formattedDate = moment(item?.date).format('MMMM D, YYYY');
-                            return (
-                                <div className="item py-4 px-6 m-2 rounded-xl shadow w-full">
-                                    <h3><strong>Date:</strong> {formattedDate}</h3>
-                                    <h2><strong>Cost: {item?.cost / 40}</strong></h2>
-                                </div>)
-                        }) : <Loading/>
-                    }
-                </div>
-            </div>
+            {/*<Heading/>*/}
+            <ChooseWarehouse />
+            {/*<div className={'container mx-auto px-4'}>*/}
+            {/*    <div className="flex flex-wrap overflow-auto max-h-[80vh]">*/}
+            {/*        {*/}
+            {/*            data?.length ? data?.map((item) => {*/}
+            {/*                const formattedDate = moment(item?.date).format('MMMM D, YYYY');*/}
+            {/*                return (*/}
+            {/*                    <div className="item py-4 px-6 m-2 rounded-xl shadow w-full">*/}
+            {/*                        <h3><strong>Date:</strong> {formattedDate}</h3>*/}
+            {/*                        <h2><strong>Cost: {item?.cost / 40}</strong></h2>*/}
+            {/*                    </div>)*/}
+            {/*            }) : <Loading/>*/}
+            {/*        }*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             {/*<Menu/>*/}
         </div>
     );
