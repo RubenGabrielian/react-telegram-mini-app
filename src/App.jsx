@@ -6,6 +6,7 @@ import Menu from "./components/layouts/menu.jsx";
 import WebApp from "@twa-dev/sdk";
 import axios from "axios";
 import {TOKEN} from "./utilites.js";
+import moment from "moment";
 
 
 const headers = {
@@ -28,17 +29,36 @@ const url = 'https://util.pinetech.org/public/api/ruben';
 
 function App() {
     const [count, setCount] = useState(0);
+    const [data, setData] = useState(null);
 
     useEffect(() => {
         console.log(WebApp?.initDataUnsafe?.user);
 
-        axios.get(url);
+        axios.get(url).then((response) => {
+            setData(response?.data?.result?.costs);
+        })
     }, []);
 
     return (
         <div style={{maxHeight: `${WebApp.viewportHeight}px`}}>
             <Header/>
             <Heading/>
+            <div className={'container mx-auto px-4'}>
+                <div className="flex flex-wrap overflow-auto max-h-[70vh]">
+
+                    {
+                        data?.map((item) => {
+                            const formattedDate = moment(item?.date).format('MMMM D, YYYY');
+                            return (
+                                <div className="item py-4 px-6 m-2 rounded-xl shadow w-full">
+                                    <h3><strong>Date:</strong> {formattedDate}</h3>
+                                    <h2><strong>Cost: {item?.cost / 20}</strong></h2>
+                                </div>)
+                        })
+                    }
+                </div>
+
+            </div>
             <Menu/>
         </div>
     );
