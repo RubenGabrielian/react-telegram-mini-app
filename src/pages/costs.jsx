@@ -18,6 +18,12 @@ export default function Costs() {
 
     const handleEnterInput = (e) => {
         if(cost) {
+            axios.post(`${API}/make-waiting`, {
+                user_id:WebApp?.initDataUnsafe?.user?.id,
+                cost: cost
+            }).then((res) => {
+                console.log(res.data);
+            })
             WebApp?.showPopup({
                 title: 'Спасибо',
                 message: 'Ваша ставка принята, мы свяжемся с вами и отправим вам сообщение, если цена окажется ниже любой из ваших ставок.',
