@@ -17,21 +17,23 @@ export default function Costs() {
     const id = queryParams.get('id');
 
     const handleEnterInput = (e) => {
-        console.log(cost)
-        WebApp?.showPopup({
-            title: 'Спасибо',
-            message: 'Ваша ставка принята, мы свяжемся с вами и отправим вам сообщение, если цена окажется ниже любой из ваших ставок.',
-            buttons: [
-                { type: 'ok', text: 'OK' },
-                { type: 'cancel', text: 'Cancel' }
-            ]
-        }).then(result => {
-            if (result.button_id === 'ok') {
-                console.log('User clicked OK');
-            } else if (result.button_id === 'cancel') {
-                console.log('User clicked Cancel');
-            }
-        });
+        if(cost) {
+            WebApp?.showPopup({
+                title: 'Спасибо',
+                message: 'Ваша ставка принята, мы свяжемся с вами и отправим вам сообщение, если цена окажется ниже любой из ваших ставок.',
+                buttons: [
+                    { type: 'ok', text: 'OK' },
+                    { type: 'cancel', text: 'Cancel' }
+                ]
+            }).then(result => {
+                if (result.button_id === 'ok') {
+                    console.log('User clicked OK');
+                } else if (result.button_id === 'cancel') {
+                    console.log('User clicked Cancel');
+                }
+            });
+        }
+
     }
 
 
@@ -52,7 +54,7 @@ export default function Costs() {
                           className={'inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600 mt-4'}>Назад</Link>
                     <button
                         onClick={() => setIsShowInput(!isShowInput)}
-                        className={'inline-block bg-red-500 text-white px-4 py-2 rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600 mt-4'}>Следите
+                        className={'inline-block bg-red-500 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 mt-4'}>Следите
                         за ценой
                     </button>
                 </div>
@@ -62,11 +64,12 @@ export default function Costs() {
                             <label htmlFor="" className={'mb-3 block'}>Напишите цену, ниже которой вы ожидаете</label>
                             <input type="number" placeholder={'30'}
                                    value={cost}
+                                   inputMode={'numeric'}
                                    onChange={(e) => setCost(e.target.value)}
                                    className={'w-full rounded-md border border-amber-50 outline-0 p-3'}/>
                             <button
                                 onClick={handleEnterInput}
-                                className={'inline-block bg-red-200 border border-red-700 text-red-950 px-4 py-2 rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600 mt-4'}>Ждать
+                                className={'inline-block bg-red-200 border border-red-700 text-red-950 px-4 py-2 rounded  mt-4'}>Ждать
                             </button>
                         </div>
                     ) : null
