@@ -22,7 +22,7 @@ export default function ChooseWarehouse () {
                     <img src={AcceptIcon} className={'absolute top-[10px] right-[10px]'} alt=""/>
                 </div>
             </div>
-            <button className={'mt-32 w-full bg-amber-200 text-black outline-0 font-bold'}>Вперед</button>
+            <button className={'mt-10 w-full bg-amber-200 text-black outline-0 font-bold'}>Вперед</button>
         </div>
     )
 }
