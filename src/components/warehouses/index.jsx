@@ -4,10 +4,13 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {API} from "../../utilites.js";
 import Loading from "../loading.jsx";
+import {useNavigate} from "react-router-dom";
 
 
 export default function ChooseWarehouse() {
     const [warehouses, setWarehouses] = useState([]);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         axios.get(`${API}/get-warehouses`).then((response) => {
@@ -34,9 +37,12 @@ export default function ChooseWarehouse() {
     }
 
 
-    useEffect(() => {
-        console.log(warehouses)
-    }, [warehouses]);
+    const handleNext = () => {
+        const selectedWarehouse = warehouses?.filter((warehouse) => warehouse.selected)[0]?.id;
+        if(selectedWarehouse) {
+            navigate(`/costs?id=${selectedWarehouse}`);
+        }
+    }
 
 
 
@@ -59,7 +65,7 @@ export default function ChooseWarehouse() {
                 }
             </div>
             {warehouses?.length ?
-                <button className={'mt-10 w-full bg-amber-200 text-black outline-0 font-bold'}>Вперед</button> : null}
+                <button className={'mt-10 w-full bg-amber-200 text-black outline-0 font-bold'} onClick={handleNext}>Вперед</button> : null}
         </div>
     )
 }
