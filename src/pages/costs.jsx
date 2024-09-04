@@ -35,6 +35,7 @@ export default function Costs() {
                 }).then(result => {
                     if (result.button_id === 'ok') {
                         console.log('User clicked OK');
+                        WebApp.close();
                     } else if (result.button_id === 'cancel') {
                         console.log('User clicked Cancel');
                     }
