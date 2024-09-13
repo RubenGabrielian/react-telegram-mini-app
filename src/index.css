@@ -29,6 +29,7 @@ body {
   min-height: 100vh;
   background-color: var(--tg-theme-bg-color);
   overflow: hidden;
+  color: var(--tg-theme-text-color);
 }
 
 h1 {
