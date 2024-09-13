@@ -1,6 +1,4 @@
-import Header from "../components/layouts/header.jsx";
 import ChooseWarehouse from "../components/warehouses/index.jsx";
-import Loading from "../components/loading.jsx";
 import {useEffect, useState} from "react";
 import WebApp from "@twa-dev/sdk";
 
@@ -20,7 +18,8 @@ export default function Home() {
 
     return (
         <>
-            <ChooseWarehouse/>
+            ruben
+            {/*<ChooseWarehouse/>*/}
         </>
     )
 }

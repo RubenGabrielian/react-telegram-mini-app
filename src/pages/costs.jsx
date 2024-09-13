@@ -23,7 +23,7 @@ export default function Costs() {
             axios.post(`${API}/make-waiting`, {
                 user_id: WebApp?.initDataUnsafe?.user?.id,
                 cost: cost
-            }).then((res) => {
+            }).then((res)    => {
                 setLoading(false);
                 WebApp?.showPopup({
                     title: 'Спасибо',

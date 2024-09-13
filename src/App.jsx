@@ -1,28 +1,24 @@
-import {useEffect, useState} from "react";
 import "./App.css";
 import Header from "./components/layouts/header.jsx";
 import WebApp from "@twa-dev/sdk";
-import ChooseWarehouse from "./components/warehouses/index.jsx";
 import {Route, Routes} from "react-router-dom";
 import Home from "./pages/home.jsx";
 import Costs from "./pages/costs.jsx";
-import axios from "axios";
-import {API} from "./utilites.js";
 
 const url = 'https://util.pinetech.org/public/api/ruben';
 
 function App() {
 
-    useEffect(() => {
-        axios.post(`${API}/init-user`,{user: WebApp?.initDataUnsafe?.user}).then((res) => {
-            console.log(res.data);
-        })
-
-    }, []);
+    // useEffect(() => {
+    //     axios.post(`${API}/init-user`,{user: WebApp?.initDataUnsafe?.user}).then((res) => {
+    //         console.log(res.data);
+    //     })
+    //
+    // }, []);
 
     return (
         <div style={{maxHeight: `${WebApp.viewportHeight}px`}}>
-            <Header/>
+            {/*<Header/>*/}
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/costs" element={<Costs/>}/>
